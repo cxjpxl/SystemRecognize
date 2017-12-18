@@ -27,16 +27,17 @@ namespace SystemRecognize.utlis
                 StreamReader sr = new StreamReader(path, Encoding.Default);
                 if (sr == null) return;
                 String line;
-
-                ArrayList list = new ArrayList(); //记录不重复的数据
+                
                 ArrayList urlList = new ArrayList();
                 while ((line = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine("line:"+line);
+                    //Console.WriteLine("line:"+line);
                     if (line.StartsWith("http"))
                     {
                         UrlInfo urlInfo = new UrlInfo(); //添加登陆显示的用户数据
                         urlInfo.baseUrl = line.Trim();
+                        urlInfo.loginUrl = line.Trim();
+                        urlInfo.dataUrl = line.Trim();
                         urlList.Add(urlInfo);
                     }
                     else

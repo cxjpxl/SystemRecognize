@@ -76,24 +76,10 @@ namespace SystemRecognize.utlis
             });
             stopWatch.Stop();
             Console.WriteLine("Parallel run " + stopWatch.ElapsedMilliseconds + " ms.");
+            
 
-            //var firstTask = new Task<bool>(() => {
-            //    return IsSystemA(url);
-            //});
-            //var secondTask = new Task<bool>(() =>
-            //{
-            //    return IsSystemB(url);
-            //});
-            //var whenAllTask = Task.WhenAll(firstTask, secondTask);
-            //whenAllTask.ContinueWith(
-            //    t => Console.WriteLine("The first answer is {0}, the second is {1}", t.Result[0], t.Result[1]),
-            //    TaskContinuationOptions.OnlyOnRanToCompletion
-            //);
-
-            //firstTask.Start();
-            //secondTask.Start();
-
-            Console.WriteLine("tag===========" + tag);
+            //MessageBox.Show(url "=================" + tag);
+            Console.WriteLine(url+ "=================" + tag);
 
             return tag;
         }

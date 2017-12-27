@@ -34,10 +34,7 @@ namespace SystemRecognize
                 return;
             }
 
-
             ViewInit();
-
-
 
             //bool tag = DataUtils.IsSystemR("https://www.ty0009.com");
             //MessageBox.Show("==============" + tag);
@@ -63,13 +60,24 @@ namespace SystemRecognize
             string tag = DataUtils.GetSystemTag(urlInfo.baseUrl);
             urlInfo.tag = tag;
             urlInfo.status = tag == "未知系统" ? 2 : 1;
+            if (urlInfo.status == 1)
+            {
+                string str = urlInfo.tag + "\t" + urlInfo.baseUrl;
+                FileUtils.WriteSuccessRlt(str);
+
+            }
+            else
+            {
+                string str = urlInfo.baseUrl;
+                FileUtils.WriteFailRlt(str);
+            }
             this.AddToListToUpDate(index);
         }
 
         private void DataInit()
         {
             //获取到用户数据
-            FileUtils.ReadUserJObject(@"C:\urls.txt");
+            FileUtils.ReadTargetUrls(@"C:\urls.txt");
         }
 
 

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Management;
 using SystemRecognize.bean;
 using SystemRecognize.utils;
+using System.Windows.Forms;
 
 namespace SystemRecognize.utlis
 {
@@ -18,7 +19,7 @@ namespace SystemRecognize.utlis
         //  2  admin权限最大  
         //  3  其他用户只能添加程序配置的
 
-        public static void ReadUserJObject(string path)
+        public static void ReadTargetUrls(string path)
         {
             
             try
@@ -62,6 +63,81 @@ namespace SystemRecognize.utlis
             }
 
         }
+
+        public static void WriteSuccessRlt(string str)
+        {
+
+            try
+            {
+                //判断文件是否存在  
+                if (!File.Exists(Application.StartupPath + "\\UrlSuccessRlt.txt"))
+                {
+                    FileStream fs1 = new FileStream(Application.StartupPath + "\\UrlSuccessRlt.txt", FileMode.Create, FileAccess.Write);//创建写入文件   
+                    StreamWriter sw = new StreamWriter(fs1);
+                    sw.WriteLine(str);
+
+                    sw.Close();
+                    fs1.Close();
+
+                }
+                else
+                {
+                    StreamWriter sw = new StreamWriter(Application.StartupPath + "\\UrlSuccessRlt.txt", true);
+                    sw.WriteLine(str);
+                    sw.Close();//写入
+                }
+
+
+            }
+            catch (SystemException e)
+            {
+                MessageBox.Show("写入失败！"+"\n"+str);
+            }
+
+        }
+
+
+        public static void WriteFailRlt(string str)
+        {
+
+            try
+            {
+                //判断文件是否存在  
+                if (!File.Exists(Application.StartupPath + "\\urls.txt"))
+                {
+                    FileStream fs1 = new FileStream(Application.StartupPath + "\\urls.txt", FileMode.Create, FileAccess.Write);//创建写入文件   
+                    StreamWriter sw = new StreamWriter(fs1);
+                    sw.WriteLine(str);
+
+                    sw.Close();
+                    fs1.Close();
+
+                }
+                else
+                {
+                    StreamWriter sw = new StreamWriter(Application.StartupPath + "\\urls.txt", true);
+                    sw.WriteLine(str);
+                    sw.Close();//写入
+                }
+
+
+            }
+            catch (SystemException e)
+            {
+                Console.WriteLine("写入失败！");
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
 
     }
 

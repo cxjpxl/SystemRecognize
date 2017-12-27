@@ -10,8 +10,6 @@ namespace SystemRecognize.bean
     public class UrlInfo
     {
         public String baseUrl = "";//用户网址
-        public String loginUrl = "";//登录使用接口前缀
-        public String dataUrl = "";//获取数据的接口
 
         public String tag = null;//网址系统
 

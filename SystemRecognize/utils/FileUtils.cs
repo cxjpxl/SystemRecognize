@@ -37,8 +37,6 @@ namespace SystemRecognize.utlis
                     {
                         UrlInfo urlInfo = new UrlInfo(); //添加登陆显示的用户数据
                         urlInfo.baseUrl = line.Trim();
-                        urlInfo.loginUrl = line.Trim();
-                        urlInfo.dataUrl = line.Trim();
                         urlList.Add(urlInfo);
                     }
                     else
@@ -64,6 +62,7 @@ namespace SystemRecognize.utlis
 
         }
 
+        // 输出识别成功的系统和网址
         public static void WriteSuccessRlt(string str)
         {
 
@@ -96,7 +95,7 @@ namespace SystemRecognize.utlis
 
         }
 
-
+        // 输出识别失败的系统和网址
         public static void WriteFailRlt(string str)
         {
 

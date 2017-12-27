@@ -43,7 +43,7 @@
             this.mianDataGridView.Location = new System.Drawing.Point(12, 12);
             this.mianDataGridView.Name = "mianDataGridView";
             this.mianDataGridView.RowTemplate.Height = 23;
-            this.mianDataGridView.Size = new System.Drawing.Size(653, 288);
+            this.mianDataGridView.Size = new System.Drawing.Size(609, 475);
             this.mianDataGridView.TabIndex = 0;
             // 
             // Column1
@@ -64,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 314);
+            this.ClientSize = new System.Drawing.Size(633, 499);
             this.Controls.Add(this.mianDataGridView);
             this.Name = "Form1";
             this.Text = "Form1";

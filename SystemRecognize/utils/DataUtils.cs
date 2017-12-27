@@ -84,7 +84,7 @@ namespace SystemRecognize.utlis
             return tag;
         }
 
-        private static bool IsSystemA(string url)
+        public static bool IsSystemA(string url)
         {
             String uidUrl = url + "/sport.aspx";
             String rlt = HttpUtils.httpGet(uidUrl, "", new System.Net.CookieContainer());
@@ -98,7 +98,7 @@ namespace SystemRecognize.utlis
             }
         }
 
-        private static bool IsSystemB(string url)
+        public static bool IsSystemB(string url)
         {
             String getDataUrl = url + "/show/ft_gunqiu_data.php?leaguename=&CurrPage=0&_=" + FormUtils.getCurrentTime();
             String rlt = HttpUtils.httpGet(getDataUrl, "", null);
@@ -112,7 +112,7 @@ namespace SystemRecognize.utlis
             }
         }
 
-        private static bool IsSystemI(string url)
+        public static bool IsSystemI(string url)
         {
             String getDataUrl = url + "/app/hsport/sports/match";
             String paramsStr = "t=" + FormUtils.getCurrentTime() + "&day=2&class=1&type=1&page=1&num=10000&league=";
@@ -131,7 +131,7 @@ namespace SystemRecognize.utlis
             }
         }
 
-        private static bool IsSystemU(string url)
+        public static bool IsSystemU(string url)
         {
             String uid = "";// userInfo.uid;
             if (String.IsNullOrEmpty(uid)) uid = "";
@@ -149,15 +149,14 @@ namespace SystemRecognize.utlis
             }
         }
 
-        private static bool IsSystemR(string url)
+        public static bool IsSystemR(string url)
         {
             String getDataUrl = url.Replace("www", "mkt") + "/foot/redata/" + "1";
             String baseUrl = url.Replace("www", "mkt");
             JObject headJObject = new JObject();
-            headJObject["Host"] = baseUrl.Replace("http://", "");
+            headJObject["Host"] = baseUrl.Replace("http://", "").Replace("https://", "");
             headJObject["Origin"] = baseUrl;
             headJObject["Referer"] = baseUrl + "/foot/re";
-
             String rlt = HttpUtils.HttpPostHeader(getDataUrl, "", "", null, headJObject);
             if (String.IsNullOrEmpty(rlt) || !rlt.Contains("LeagueTr"))
             {
@@ -169,7 +168,7 @@ namespace SystemRecognize.utlis
             }
         }
 
-        private static bool IsSystemG(string url)
+        public static bool IsSystemG(string url)
         {
             String getDataUrl = url + "/index.php/sports/Match/FootballPlaying?t=" + FormUtils.getCurrentTime();
             JObject headJObject = new JObject();
@@ -189,7 +188,7 @@ namespace SystemRecognize.utlis
             }
         }
 
-        private static bool IsSystemK(string url)
+        public static bool IsSystemK(string url)
         {
             JObject headJObject = new JObject();
             CookieContainer cookie = new CookieContainer();

@@ -34,7 +34,14 @@ namespace SystemRecognize
                 return;
             }
 
+
             ViewInit();
+
+
+
+            //bool tag = DataUtils.IsSystemR("https://www.ty0009.com");
+            //MessageBox.Show("==============" + tag);
+            //return;
 
             for (int i = 0; i < Config.urlList.Count; i++)
             {
